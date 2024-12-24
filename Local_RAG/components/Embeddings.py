@@ -17,9 +17,7 @@ class Save_Embeddings:
 
     def _generate_embeddings(self):
         for item in tqdm(self.pages_and_chunks, desc="generating embeddings"):
-            item["embedding"] = self.embedding_model.encode(
-                item["sentence_chunk"], convert_to_tensor=True
-            )
+            item["embedding"] = self.embedding_model.encode(item["sentence_chunk"])
 
     def _save_embeddings(self):
         data_frame = pd.DataFrame(self.pages_and_chunks)
@@ -28,7 +26,6 @@ class Save_Embeddings:
     def run(self):
         self._generate_embeddings()
         self._save_embeddings()
-        return self.pages_and_chunks
 
 
 if __name__ == "__main__":
