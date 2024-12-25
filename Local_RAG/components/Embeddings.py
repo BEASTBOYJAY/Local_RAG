@@ -6,9 +6,9 @@ import pandas as pd
 
 
 class Save_Embeddings:
-    def __init__(self, embedding_model="all-mpnet-base-v2"):
+    def __init__(self, pdf_path, embedding_model="all-mpnet-base-v2"):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.pdf_processor = PDF_Processor("human-nutrition-text.pdf")
+        self.pdf_processor = PDF_Processor(pdf_path=pdf_path)
         self.pages_and_chunks = self.pdf_processor.run()
 
         self.embedding_model = SentenceTransformer(
@@ -29,5 +29,5 @@ class Save_Embeddings:
 
 
 if __name__ == "__main__":
-    save_embeddings = Save_Embeddings()
+    save_embeddings = Save_Embeddings(pdf_path="human-nutrition-text.pdf")
     save_embeddings.run()

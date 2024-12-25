@@ -4,7 +4,7 @@ import torch
 from sentence_transformers import util, SentenceTransformer
 
 
-class Semantic_Search:
+class Semantic_search:
     def __init__(self, embeddings_csv: str = "embeddings.csv"):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.embeddings_csv = embeddings_csv
@@ -78,5 +78,5 @@ class Semantic_Search:
 
 
 if __name__ == "__main__":
-    semantic_search = Semantic_Search()
+    semantic_search = Semantic_search()
     releveant_chuks = semantic_search.run(query="breast feed")
