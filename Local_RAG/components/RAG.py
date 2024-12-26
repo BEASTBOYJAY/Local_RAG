@@ -1,4 +1,4 @@
-from Embeddings import Save_Embeddings
+from Embeddings import SaveEmbeddings
 from Prompter import Create_prompt
 from LLM import LLM_Model
 import os
@@ -28,7 +28,7 @@ class Local_RAG:
 
         # Check if the embeddings CSV file already exists. If not, generate and save embeddings.
         if not os.path.exists("embeddings.csv"):
-            self.save_embeddings = Save_Embeddings(
+            self.save_embeddings = SaveEmbeddings(
                 pdf_path=self.pdf_path
             )  # Initialize Save_Embeddings
             self.save_embeddings.run()  # Run the embedding saving process
