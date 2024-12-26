@@ -1,0 +1,16 @@
+groq
+huggingface-hub
+numpy
+pandas
+PyMuPDF
+python-dotenv
+regex
+scikit-learn
+scipy
+sentence-transformers
+spacy
+tokenizers
+torch
+tqdm
+transformers
+Wikipedia-API
